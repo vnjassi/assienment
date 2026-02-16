@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPro India | Secure Python Backend Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        :root { --p: #6366f1; --dark: #0f172a; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark); color: white; }
+        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); }
+        .india-grad { background: linear-gradient(90deg, #FF9933, #ffffff, #138808); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
 
+    <!-- 3D Background -->
+    <div id="canvas-container" class="fixed inset-0 -z-10"></div>
+
+    <!-- Navigation -->
+    <nav class="p-6 flex justify-between items-center glass sticky top-0 z-50">
+        <div class="text-2xl font-black">STUDY<span class="text-indigo-500">PRO</span> <span class="text-xs text-orange-400">PYTHON SECURE</span></div>
+        <div class="hidden md:flex gap-6 text-sm font-bold uppercase">
+            <a href="#portal" class="hover:text-indigo-400">Portal</a>
+            <a href="#pricing" class="hover:text-indigo-400">Earnings</a>
+            <button class="bg-indigo-600 px-6 py-2 rounded-lg">Login</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-6">
+        <div class="inline-block px-4 py-1 rounded-full bg-white/5 border border-white/10 mb-6 text-xs font-bold tracking-widest uppercase">
+            🇮🇳 Bharat's Secure Assignment Network
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+            Assignment Banvao, <br> <span class="india-grad">Paise Kamao.</span>
+        </h1>
+        <p class="max-w-2xl text-slate-400 text-lg mb-10">
+            Python-powered security aur Razorpay integration ke saath, ab assignments manage karna hua aur bhi asaan.
+        </p>
+        <div class="flex gap-4">
+            <a href="#portal" class="bg-white text-black px-10 py-4 rounded-2xl font-bold hover:scale-105 transition">Get Started</a>
+            <a href="#pricing" class="glass px-10 py-4 rounded-2xl font-bold hover:bg-white/10 transition">Writer Earnings</a>
+        </div>
+    </section>
+
+    <!-- Commission Calculator Section -->
+    <section id="pricing" class="py-20 px-6 max-w-5xl mx-auto">
+        <div class="glass p-10 rounded-[3rem] border-indigo-500/30">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">Transparent Payouts</h2>
+                    <p class="text-slate-400 mb-6">Humara Python backend automatically 20% platform fee calculate karta hai.</p>
+                    <div class="space-y-4">
+                        <div class="flex justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span>Your Work Share</span>
+                            <span class="text-green-400 font-bold">80%</span>
+                        </div>
+                        <div class="flex justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span>Platform Support</span>
+                            <span class="text-orange-400 font-bold">20%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-600/10 p-8 rounded-3xl border border-indigo-500/20">
+                    <label class="block text-xs font-bold mb-2 uppercase">Estimate Your Earning (INR)</label>
+                    <input type="number" id="calcInput" placeholder="Enter Amount (e.g. 1000)" class="w-full bg-black/40 border border-white/10 p-4 rounded-xl mb-6 outline-none focus:ring-2 ring-indigo-500">
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-400">You Receive:</span>
+                            <span id="youGet" class="text-xl font-black text-green-400">₹0</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-400">Platform Fee:</span>
+                            <span id="fee" class="font-bold text-red-400">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unified Form -->
+    <section id="portal" class="py-20 px-6">
+        <div class="max-w-3xl mx-auto glass p-10 rounded-[3rem]">
+            <h2 class="text-3xl font-bold text-center mb-10">Submit Application</h2>
+            <form action="/submit-request" method="POST" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold mb-2 uppercase">I am a...</label>
+                        <select name="type" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none">
+                            <option value="student">Student (Needs Assignment)</option>
+                            <option value="writer">Writer (Wants to Work)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-2 uppercase">Full Name</label>
+                        <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold mb-2 uppercase">WhatsApp Number</label>
+                        <input type="tel" name="phone" required class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-2 uppercase">Subject</label>
+                        <input type="text" name="subject" required class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-2 uppercase">Message/Requirements</label>
+                    <textarea name="message" rows="4" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 py-5 rounded-2xl font-bold text-xl hover:bg-indigo-500 shadow-xl shadow-indigo-600/30 transition">Send To Server</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Commission Calculator Logic
+        document.getElementById('calcInput').addEventListener('input', function(e) {
+            const val = parseFloat(e.target.value) || 0;
+            const fee = val * 0.20;
+            const payout = val - fee;
+            document.getElementById('youGet').innerText = '₹' + payout.toFixed(2);
+            document.getElementById('fee').innerText = '₹' + fee.toFixed(2);
+        });
+
+        // 3D Scene setup
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        let geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        let material = new THREE.MeshPhongMaterial({ color: 0x6366f1, wireframe: true });
+        let torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+
+        let light = new THREE.PointLight(0xffffff, 1);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torusKnot.rotation.x += 0.01;
+            torusKnot.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
