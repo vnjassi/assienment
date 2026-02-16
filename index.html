@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyPro Elite | Premium Academic Solutions</title>
+    <title>StudyPro India | Bharat Ka No.1 Assignment Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
         
         :root {
             --primary: #6366f1;
-            --secondary: #a855f7;
+            --india-orange: #FF9933;
+            --india-green: #138808;
             --dark: #0f172a;
+            --razorpay-blue: #3395FF;
         }
 
         body {
@@ -38,47 +42,33 @@
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            background: linear-gradient(135deg, #FF9933 0%, #ffffff 50%, #138808 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-link {
-            position: relative;
-            transition: color 0.3s;
+        .india-badge {
+            background: linear-gradient(90deg, rgba(255,153,51,0.2), rgba(19,136,8,0.2));
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
+        .razorpay-btn {
+            background: var(--razorpay-blue);
+            transition: all 0.3s ease;
+        }
+
+        .commission-badge {
+            background: linear-gradient(45deg, #1e293b, #334155);
+            border: 1px dashed rgba(99, 102, 241, 0.5);
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--dark); }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .animate-float { animation: float 3s ease-in-out infinite; }
     </style>
 </head>
 <body>
@@ -90,15 +80,15 @@
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                     <i class="fas fa-graduation-cap text-white"></i>
                 </div>
-                <span class="text-2xl font-black tracking-tighter uppercase">Study<span class="text-indigo-400">Pro</span></span>
+                <span class="text-2xl font-black tracking-tighter uppercase">Study<span class="text-indigo-400">Pro</span> <span class="text-xs align-top text-orange-400">IN</span></span>
             </div>
-            <div class="hidden md:flex gap-8 items-center text-sm font-bold uppercase tracking-widest">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#calculator" class="nav-link">Pricing</a>
-                <a href="#contact-form" class="bg-indigo-600 px-6 py-3 rounded-xl hover:bg-indigo-500 transition shadow-xl shadow-indigo-600/20">Hire Expert</a>
+            <div class="hidden md:flex gap-8 items-center text-xs font-bold uppercase tracking-widest">
+                <a href="#portal" class="hover:text-indigo-400 transition">Assignment Portal</a>
+                <a href="#earnings" class="hover:text-indigo-400 transition">Commission Model</a>
+                <a href="#contact-form" class="bg-indigo-600 px-6 py-3 rounded-xl hover:bg-indigo-500 transition shadow-xl">Join Now</a>
             </div>
         </div>
     </nav>
@@ -107,151 +97,189 @@
     <section class="relative min-h-screen flex items-center pt-20 px-6">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div class="z-10">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    <span class="text-xs font-bold uppercase tracking-widest text-slate-300">Experts Online Now</span>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full india-badge mb-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" class="w-5 h-3.5 rounded-sm" alt="India">
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-200">Integrated with Razorpay Secure Payments</span>
                 </div>
-                <h1 class="text-6xl lg:text-8xl font-black leading-none mb-8">
-                    Your Academic <br>
-                    <span class="text-gradient">Success Partner.</span>
+                <h1 class="text-6xl lg:text-7xl font-black leading-tight mb-8">
+                    India's Most <br>
+                    <span class="text-gradient font-extrabold">Professional Hub.</span>
                 </h1>
                 <p class="text-xl text-slate-400 mb-10 max-w-lg leading-relaxed">
-                    Elevate your grades with custom-tailored assignments. 100% confidentiality and guaranteed excellence for every student.
+                    Secure payments via Razorpay, transparent 20% commission, and 24/7 Indian support. Bharat ka sabse bharosemand portal.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#contact-form" class="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold text-lg hover:bg-indigo-50 transition transform hover:scale-105">Get Started Free</a>
-                    <div class="flex -space-x-4 items-center pl-4">
-                        <img src="https://i.pravatar.cc/100?u=1" class="w-10 h-10 rounded-full border-2 border-slate-900" alt="User">
-                        <img src="https://i.pravatar.cc/100?u=2" class="w-10 h-10 rounded-full border-2 border-slate-900" alt="User">
-                        <img src="https://i.pravatar.cc/100?u=3" class="w-10 h-10 rounded-full border-2 border-slate-900" alt="User">
-                        <span class="pl-6 text-sm font-bold text-slate-400">+500 Happy Students</span>
+                    <a href="#portal" class="px-8 py-4 bg-white text-slate-950 rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl">Start Journey</a>
+                    <div class="flex items-center gap-3 glass px-6 py-4 rounded-2xl">
+                        <img src="https://razorpay.com/favicon.png" class="w-5 h-5" alt="Razorpay">
+                        <span class="text-sm font-bold">Razorpay Verified</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section id="features" class="py-32 px-6">
+    <!-- Portal Selection Section -->
+    <section id="portal" class="py-24 px-6 bg-white/5 relative">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-10 rounded-[2.5rem] border-white/5 hover:border-indigo-500/50 transition">
-                    <div class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-bolt text-2xl text-indigo-400"></i>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Choose Your Role</h2>
+                <p class="text-slate-400">Assignment banvana hai ya banana hai?</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Students Section -->
+                <div class="glass p-10 rounded-[3rem] border-orange-500/20 hover:border-orange-500/50 transition-all group overflow-hidden relative">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-user-graduate text-[15rem]"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Express Delivery</h3>
-                    <p class="text-slate-400">Urgent assignments? We deliver in as little as 6 hours without compromising quality.</p>
+                    <div class="w-16 h-16 bg-orange-500/20 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-user-graduate text-3xl text-orange-400"></i>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4">I am a Student</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">Secure UPI/Card payments se assignment order karein.</p>
+                    <ul class="space-y-3 mb-10 text-sm font-bold text-slate-300">
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Pay via UPI, Google Pay, PhonePe</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> EMI options available via Razorpay</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i> Instant Invoice on Payment</li>
+                    </ul>
+                    <button onclick="switchForm('student')" class="w-full bg-orange-600 py-4 rounded-2xl font-bold hover:bg-orange-500 shadow-xl shadow-orange-600/20 transition">Get Assignment Done</button>
                 </div>
-                <div class="glass p-10 rounded-[2.5rem] border-white/5 hover:border-purple-500/50 transition">
-                    <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-virus text-2xl text-purple-400"></i>
+
+                <!-- Writers Section -->
+                <div class="glass p-10 rounded-[3rem] border-green-500/20 hover:border-green-500/50 transition-all group overflow-hidden relative">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fas fa-pen-nib text-[15rem]"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Zero Plagiarism</h3>
-                    <p class="text-slate-400">Every paper is written from scratch and includes a free Turnitin report for your peace of mind.</p>
-                </div>
-                <div class="glass p-10 rounded-[2.5rem] border-white/5 hover:border-pink-500/50 transition">
-                    <div class="w-14 h-14 bg-pink-500/10 rounded-2xl flex items-center justify-center mb-6">
-                        <i class="fas fa-coins text-2xl text-pink-400"></i>
+                    <div class="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-pen-nib text-3xl text-green-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Money-Back Guarantee</h3>
-                    <p class="text-slate-400">Not satisfied? We offer unlimited revisions or a full refund. Your success is our priority.</p>
+                    <h3 class="text-3xl font-black mb-4">I am a Writer</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">Expert banien aur har assignment par 80% earn karein.</p>
+                    <ul class="space-y-3 mb-10 text-sm font-bold text-slate-300">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Transparent 20% Platform Fee</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Direct Payout to Bank Account</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Dashboard to track earnings</li>
+                    </ul>
+                    <button onclick="switchForm('writer')" class="w-full bg-green-600 py-4 rounded-2xl font-bold hover:bg-green-500 shadow-xl shadow-green-600/20 transition">Apply to Write</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Calculator -->
-    <section id="calculator" class="py-32 px-6 bg-white/5">
-        <div class="max-w-4xl mx-auto glass p-12 rounded-[3rem] border-white/10 shadow-3xl">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Estimate Your Price</h2>
-                <p class="text-slate-400">Transparent pricing. No hidden charges.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div class="space-y-6">
+    <!-- Commission Section -->
+    <section id="earnings" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="glass p-12 rounded-[3.5rem] border-indigo-500/20 overflow-hidden relative">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <label class="block text-sm font-bold text-slate-500 mb-3 uppercase tracking-tighter">Pages / Words</label>
-                        <input type="range" id="pages" min="1" max="50" value="1" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500">
-                        <div class="flex justify-between text-sm mt-2 font-bold">
-                            <span>1 Page</span>
-                            <span id="pageValue" class="text-indigo-400">1 Page (250 words)</span>
-                            <span>50 Pages</span>
+                        <h2 class="text-4xl font-bold mb-6">Commission Structure</h2>
+                        <p class="text-slate-400 mb-8">Humara model bohot simple aur transparent hai. Hum har assignment par sirf 20% platform fee charge karte hain maintenance aur support ke liye.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="commission-badge p-6 rounded-3xl flex justify-between items-center">
+                                <div>
+                                    <div class="text-indigo-400 font-bold">Writer Share</div>
+                                    <div class="text-xs text-slate-500">Aapki mehnat ka fal</div>
+                                </div>
+                                <div class="text-4xl font-black text-white">80%</div>
+                            </div>
+                            <div class="p-6 rounded-3xl flex justify-between items-center border border-white/5">
+                                <div>
+                                    <div class="text-slate-300 font-bold">Platform Fee</div>
+                                    <div class="text-xs text-slate-500">Service & Tech charge</div>
+                                </div>
+                                <div class="text-4xl font-black text-indigo-400">20%</div>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-bold text-slate-500 mb-3 uppercase tracking-tighter">Urgency</label>
-                        <select id="urgency" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-indigo-500">
-                            <option value="1" class="bg-slate-900">Normal (7+ Days)</option>
-                            <option value="1.5" class="bg-slate-900">Standard (3-5 Days)</option>
-                            <option value="2" class="bg-slate-900">Urgent (24 Hours)</option>
-                        </select>
+                    <div class="text-center bg-indigo-600/5 rounded-[3rem] p-10 border border-indigo-500/10">
+                        <div class="w-24 h-24 bg-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-wallet text-4xl text-indigo-400"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-2">Example Earning</h4>
+                        <p class="text-slate-400 text-sm mb-6">Agar assignment ₹1000 ka hai:</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between border-b border-white/5 pb-2">
+                                <span>Student Paid</span>
+                                <span class="font-bold">₹1000</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/5 pb-2 text-red-400">
+                                <span>Platform (20%)</span>
+                                <span class="font-bold">- ₹200</span>
+                            </div>
+                            <div class="flex justify-between pt-2 text-green-400 text-xl font-black">
+                                <span>Your Income</span>
+                                <span>₹800</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center p-8 bg-indigo-600/10 rounded-3xl border border-indigo-500/20">
-                    <span class="text-sm font-bold text-indigo-300">Estimated Total</span>
-                    <div class="text-6xl font-black my-2">$<span id="totalPrice">15</span></div>
-                    <p class="text-xs text-slate-500">Final price depends on complex requirements</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Inquiry Form -->
-    <section id="contact-form" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-                <h2 class="text-5xl font-extrabold mb-8 leading-tight">Ready to Boost <br>Your <span class="text-gradient">Academic Profile?</span></h2>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 text-slate-300">
-                        <i class="fas fa-check text-indigo-500"></i> PhD Level Writers
-                    </div>
-                    <div class="flex items-center gap-4 text-slate-300">
-                        <i class="fas fa-check text-indigo-500"></i> Native English Speakers
-                    </div>
-                    <div class="flex items-center gap-4 text-slate-300">
-                        <i class="fas fa-check text-indigo-500"></i> Free Formatting (APA/MLA/Chicago)
-                    </div>
-                </div>
-                <div class="mt-12 p-8 glass rounded-3xl border-indigo-500/20">
-                    <p class="italic text-slate-400 mb-4">"The quality of work was exceptional. I received my assignment 2 days before the deadline and got an A+!"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-700"></div>
-                        <div>
-                            <div class="font-bold">Varun Jassi</div>
-                            <div class="text-xs text-slate-500">Verified Student</div>
-                        </div>
-                    </div>
+    <!-- Dynamic Form Section -->
+    <section id="contact-form" class="py-24 px-6 relative">
+        <div class="max-w-4xl mx-auto glass p-10 md:p-16 rounded-[3.5rem] border-white/10 shadow-3xl">
+            <div id="form-header" class="text-center mb-12">
+                <h2 id="form-title" class="text-4xl font-bold mb-4">Request Your Assignment</h2>
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <img src="https://razorpay.com/favicon.png" class="w-6" alt="Razorpay">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Powered by Razorpay</span>
                 </div>
             </div>
-            <div class="glass p-10 rounded-[3rem] border-white/10 shadow-2xl">
-                <form id="assignmentForm" class="space-y-6">
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="text" id="name" placeholder="Full Name" class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required>
-                        <input type="text" id="subject" placeholder="Subject" class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required>
+            
+            <form id="unifiedForm" class="space-y-6">
+                <input type="hidden" id="formType" value="student">
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-widest text-slate-500">Full Name</label>
+                        <input type="text" id="name" placeholder="Varun Jassi" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required>
                     </div>
-                    <input type="date" id="deadline" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required>
-                    <textarea id="message" rows="4" placeholder="Specific Requirements (Topic, Sources, Grade Level...)" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required></textarea>
-                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl shadow-indigo-600/40">
-                        Place Order via GMail
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-widest text-slate-500">WhatsApp No.</label>
+                        <input type="tel" id="phone" placeholder="+91" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label id="label-subject" class="text-xs font-black uppercase tracking-widest text-slate-500">Subject / Skill</label>
+                    <input type="text" id="subject" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required>
+                </div>
+
+                <div class="space-y-2">
+                    <label id="label-details" class="text-xs font-black uppercase tracking-widest text-slate-500">Details</label>
+                    <textarea id="message" rows="4" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:ring-2 ring-indigo-500/50 transition" required></textarea>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-4 pt-4">
+                    <button type="submit" id="submitBtn" class="flex-1 bg-indigo-600 hover:bg-indigo-500 py-6 rounded-2xl font-bold text-xl transition-all shadow-xl">
+                        Submit Request
                     </button>
-                </form>
-            </div>
+                    <button type="button" onclick="payNow()" id="payBtn" class="razorpay-btn flex-1 py-6 rounded-2xl font-bold text-xl text-white flex items-center justify-center gap-3 shadow-xl">
+                        <i class="fas fa-credit-card"></i> Advance Payment
+                    </button>
+                </div>
+                <p class="text-center text-[10px] text-slate-600 uppercase tracking-widest">100% Safe & Encrypted by Razorpay Payment Gateway</p>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-white/5 text-center">
-        <div class="mb-10 flex justify-center gap-6 text-2xl">
-            <a href="#" class="text-slate-500 hover:text-white transition"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-slate-500 hover:text-white transition"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:varunjassi15@gmail.com" class="text-slate-500 hover:text-white transition"><i class="fas fa-envelope"></i></a>
+    <footer class="py-20 px-6 border-t border-white/5 text-center bg-black/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-center gap-8 mb-10 opacity-30 grayscale hover:grayscale-0 transition duration-500">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-6" alt="Paypal">
+                <img src="https://razorpay.com/assets/razorpay-glyph.svg" class="h-6" alt="Razorpay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" class="h-6" alt="UPI">
+            </div>
+            <p class="text-slate-500 font-black mb-4 tracking-widest uppercase">
+                <span class="text-orange-500">Made</span> in <span class="text-green-500">India</span> | Razorpay Integrated
+            </p>
+            <p class="text-xs text-slate-700 uppercase tracking-widest">© 2026 StudyPro India | varunjassi15@gmail.com</p>
         </div>
-        <p class="text-slate-500 font-bold mb-2">STUDYPRO ELITE SOLUTIONS</p>
-        <p class="text-slate-600 text-sm">Empowering students through premium academic writing and research assistance.</p>
-        <p class="mt-8 text-xs text-slate-700 uppercase tracking-widest">© 2026 Designed for Varun Jassi</p>
     </footer>
 
     <script>
@@ -260,88 +288,49 @@
         function init3D() {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(2, 1, 6);
+            camera.position.set(0, 1.5, 6);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            renderer.shadowMap.enabled = true;
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            // Lighting
-            const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.6);
+            const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.5);
             scene.add(hemiLight);
 
-            const dirLight = new THREE.DirectionalLight(0x818cf8, 1);
-            dirLight.position.set(5, 5, 5);
-            dirLight.castShadow = true;
-            scene.add(dirLight);
-
-            // Advanced Character Build
+            // Character
             girl = new THREE.Group();
-
-            // Materials
             const skinMat = new THREE.MeshPhongMaterial({ color: 0xffdbac });
-            const clothesMat = new THREE.MeshPhongMaterial({ color: 0x312e81, shininess: 50 });
-            const hairMat = new THREE.MeshPhongMaterial({ color: 0x2d1b0d });
+            const clothesMat = new THREE.MeshPhongMaterial({ color: 0x4f46e5 });
+            const hairMat = new THREE.MeshPhongMaterial({ color: 0x1a1a1a });
 
-            // Torso (Trapezoid-like)
-            const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.5, 1.2, 12), clothesMat);
+            const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.5, 1.4, 16), clothesMat);
             girl.add(torso);
 
-            // Head (Sphere)
             const head = new THREE.Mesh(new THREE.SphereGeometry(0.4, 32, 32), skinMat);
-            head.position.y = 1.0;
+            head.position.y = 1.1;
             girl.add(head);
 
-            // Realistic Hair
-            const hairMain = new THREE.Mesh(new THREE.SphereGeometry(0.42, 32, 32, 0, Math.PI * 2, 0, Math.PI / 1.6), hairMat);
-            hairMain.position.y = 1.05;
+            const hairMain = new THREE.Mesh(new THREE.SphereGeometry(0.42, 32, 32, 0, Math.PI * 2, 0, Math.PI / 1.5), hairMat);
+            hairMain.position.y = 1.15;
             girl.add(hairMain);
 
-            const ponytail = new THREE.Mesh(new THREE.SphereGeometry(0.25, 16, 16), hairMat);
-            ponytail.position.set(0, 1.3, -0.3);
-            girl.add(ponytail);
-
-            // Eyes
-            const eyeGeo = new THREE.SphereGeometry(0.04, 8, 8);
-            const eyeMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
-            const lEye = new THREE.Mesh(eyeGeo, eyeMat);
-            lEye.position.set(-0.15, 1.05, 0.35);
-            const rEye = new THREE.Mesh(eyeGeo, eyeMat);
-            rEye.position.set(0.15, 1.05, 0.35);
-            girl.add(lEye, rEye);
-
-            // Arms (Slim Cylinders)
-            const armGeo = new THREE.CylinderGeometry(0.08, 0.08, 0.9, 8);
-            const lArm = new THREE.Mesh(armGeo, skinMat);
-            lArm.position.set(-0.55, 0.1, 0.1);
-            lArm.rotation.z = 0.4;
-            lArm.rotation.x = -0.5;
-            
-            const rArm = new THREE.Mesh(armGeo, skinMat);
-            rArm.position.set(0.55, 0.1, 0.1);
-            rArm.rotation.z = -0.4;
-            rArm.rotation.x = -0.5;
-            girl.add(lArm, rArm);
-
-            // Assignment She is "Holding"
-            const paperGeo = new THREE.BoxGeometry(0.6, 0.8, 0.02);
-            const paperMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-            const paper = new THREE.Mesh(paperGeo, paperMat);
-            paper.position.set(0, 0, 0.6);
-            paper.rotation.x = -0.4;
-            girl.add(paper);
+            const braid = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.05, 1.5, 8), hairMat);
+            braid.position.set(0, 0.3, -0.4);
+            braid.rotation.x = -0.3;
+            girl.add(braid);
 
             scene.add(girl);
 
-            // Floating decorations (Books)
-            for(let i=0; i<15; i++) {
-                const book = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.5, 0.1), new THREE.MeshPhongMaterial({ color: i % 2 == 0 ? 0x818cf8 : 0xc084fc }));
-                book.position.set((Math.random()-0.5)*20, (Math.random()-0.5)*20, (Math.random()-0.5)*10);
-                book.rotation.set(Math.random(), Math.random(), Math.random());
-                book.userData = { rotSpeed: Math.random() * 0.02 };
-                scene.add(book);
+            // Particles
+            for(let i=0; i<30; i++) {
+                const mesh = new THREE.Mesh(new THREE.TetrahedronGeometry(0.2), new THREE.MeshPhongMaterial({ 
+                    color: i % 3 === 0 ? 0xff9933 : (i % 3 === 1 ? 0xffffff : 0x138808),
+                    transparent: true, opacity: 0.4
+                }));
+                mesh.position.set((Math.random()-0.5)*15, (Math.random()-0.5)*15, (Math.random()-0.5)*10);
+                mesh.userData.rot = Math.random() * 0.02;
+                scene.add(mesh);
             }
 
             animate();
@@ -350,24 +339,12 @@
         function animate() {
             requestAnimationFrame(animate);
             const time = Date.now() * 0.001;
-            
-            // Character floating logic
-            girl.position.y = Math.sin(time) * 0.2;
-            girl.rotation.y = Math.sin(time * 0.5) * 0.15;
-
-            // Interactive looking
-            camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY * 3 + 1 - camera.position.y) * 0.05;
-            camera.lookAt(0, 0, 0);
-
-            // Animate background items
-            scene.children.forEach(child => {
-                if(child.userData.rotSpeed) {
-                    child.rotation.y += child.userData.rotSpeed;
-                    child.position.y += Math.sin(time + child.position.x) * 0.005;
-                }
-            });
-
+            girl.position.y = Math.sin(time) * 0.2 + 0.5;
+            girl.rotation.y = Math.sin(time * 0.5) * 0.1;
+            camera.position.x += (mouseX * 4 - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY * 2 + 1.5 - camera.position.y) * 0.05;
+            camera.lookAt(0, 1, 0);
+            scene.children.forEach(c => { if(c.userData.rot) c.rotation.y += c.userData.rot; });
             renderer.render(scene, camera);
         }
 
@@ -377,37 +354,63 @@
             mouseY = (e.clientY / window.innerHeight) - 0.5;
         });
 
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+        function switchForm(type) {
+            const formTitle = document.getElementById('form-title');
+            const submitBtn = document.getElementById('submitBtn');
+            const payBtn = document.getElementById('payBtn');
+            const formType = document.getElementById('formType');
 
-        // Pricing logic
-        const pagesInput = document.getElementById('pages');
-        const urgencyInput = document.getElementById('urgency');
-        const totalPriceEl = document.getElementById('totalPrice');
-        const pageValueEl = document.getElementById('pageValue');
+            document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
 
-        function updatePrice() {
-            const pages = parseInt(pagesInput.value);
-            const multiplier = parseFloat(urgencyInput.value);
-            const total = pages * 15 * multiplier;
-            totalPriceEl.innerText = total.toFixed(0);
-            pageValueEl.innerText = `${pages} Page${pages > 1 ? 's' : ''} (${pages * 250} words)`;
+            if(type === 'student') {
+                formType.value = 'student';
+                formTitle.innerText = "Order Your Assignment";
+                submitBtn.innerText = "Submit Request";
+                submitBtn.className = "flex-1 bg-orange-600 hover:bg-orange-500 py-6 rounded-2xl font-bold text-xl transition-all shadow-xl";
+                payBtn.style.display = "flex";
+            } else {
+                formType.value = 'writer';
+                formTitle.innerText = "Writer Application";
+                submitBtn.innerText = "Apply as Writer";
+                submitBtn.className = "flex-1 bg-green-600 hover:bg-green-500 py-6 rounded-2xl font-bold text-xl transition-all shadow-xl";
+                payBtn.style.display = "none";
+            }
         }
 
-        pagesInput.addEventListener('input', updatePrice);
-        urgencyInput.addEventListener('change', updatePrice);
+        // Razorpay Mockup
+        function payNow() {
+            const options = {
+                "key": "rzp_test_YOUR_KEY", // Placeholder
+                "amount": "50000", // ₹500
+                "currency": "INR",
+                "name": "StudyPro India",
+                "description": "Assignment Advance Payment",
+                "image": "https://razorpay.com/favicon.png",
+                "handler": function (response){
+                    alert("Payment Success! ID: " + response.razorpay_payment_id);
+                },
+                "prefill": {
+                    "name": document.getElementById('name').value || "Student Name",
+                    "contact": document.getElementById('phone').value || ""
+                },
+                "theme": { "color": "#6366f1" }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
 
-        // Form Submission
-        document.getElementById('assignmentForm').addEventListener('submit', function(e) {
+        document.getElementById('unifiedForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const emailBody = `NEW ORDER REQUEST%0D%0AName: ${document.getElementById('name').value}%0D%0ASubject: ${document.getElementById('subject').value}%0D%0ADeadline: ${document.getElementById('deadline').value}%0D%0ADetails: ${document.getElementById('message').value}`;
-            window.location.href = `mailto:varunjassi15@gmail.com?subject=New Order Inquiry&body=${emailBody}`;
+            const emailBody = `PORTAL: ${document.getElementById('formType').value.toUpperCase()}%0D%0AName: ${document.getElementById('name').value}%0D%0APhone: ${document.getElementById('phone').value}%0D%0ASubject: ${document.getElementById('subject').value}%0D%0ADetails: ${document.getElementById('message').value}`;
+            window.location.href = `mailto:varunjassi15@gmail.com?subject=Portal Entry - ${document.getElementById('name').value}&body=${emailBody}`;
         });
 
         window.onload = init3D;
+        window.onresize = () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        };
     </script>
 </body>
 </html>
